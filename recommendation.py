@@ -7,7 +7,7 @@ def results(movie_name):
     movie_name = movie_name.lower()
     movie_data = pd.read_csv('Appdata/Movie_dataset.csv')
     movie_data = movie_data.drop(['Unnamed: 0','genres','overview','production_companies'],axis=1)
-    movie_data = movie_data.iloc[:100]
+    #movie_data = movie_data.iloc[:100]
 
     if movie_name not in movie_data['title'].unique():
         return 'Movie not in Database'
