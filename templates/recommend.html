@@ -2,13 +2,33 @@
 {% block content %}
 
   {% if t=='s' %}
+
+</div>
+
+
+  <form action="{{url_for('recommend')}}">
+
+    <input type="text" name="movie" class="form-control" placeholder="Enter full movie name here">
+    <br>
+    <input type="submit" class="btn btn-info" value="Enter">
+
   <div class="shadow p-3 mb-5 bg-white rounded">
     <h3 style="color:rgb(0, 102, 255)">Sorry! This movie is not in our database.</h3>
-    <h3 style="color:rgb(0, 102, 255)">Please check if you spelled it correct.</h3>
+    <h3 style="color:rgb(0, 102, 255)">Please check if you spelled it correctly.</h3>
     <h3 style="color:rgb(0, 102, 255)">Or try with another movie.</h3>
   </div>
 
   {% else %}
+
+</div>
+
+
+  <form action="{{url_for('recommend')}}">
+
+    <input type="text" name="movie" class="form-control" placeholder="Enter full movie name here">
+    <br>
+    <input type="submit" class="btn btn-info" value="Enter">
+
   <div class="shadow p-3 mb-5 bg-white rounded">
     <h1 style="color:rgb(0, 102, 255)">"{{movie}}" is a great choice.</h1>
     <h3 style="color:rgb(0, 102, 255)">Here are some more like this</h3>
