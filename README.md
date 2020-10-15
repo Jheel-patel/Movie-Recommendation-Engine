@@ -6,4 +6,4 @@ The details of the movies(title, genre, runtime, rating, poster, etc) are fetche
 
 Check out the live demo: http://www.ai-movie-recommender.jheelpatel.com/
 
-
+![](static/AI%20recommender.png)
