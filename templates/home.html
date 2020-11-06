@@ -1,18 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="shadow p-3 mb-5 bg-white rounded">
-  <h1 text-align:center style="color:rgb(0, 102, 255)">Welcome to the AI based movie recommender</h1>
-  <h3 style="color:rgb(0, 0, 0)">Enter the movie you like to get recommendations.</h3>
-</div>
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h1 text-align:center style="color:rgb(0, 102, 255)">Welcome to the AI based movie recommender</h1>
+    <h3 style="color:rgb(0, 0, 0)">Enter the movie you like to get recommendations.</h3>
+  </div>
 
 
-  <form action="{{url_for('recommend')}}">
+    <form action="{{url_for('recommend')}}">
+      <p>Try these</p>
+        <input type="submit" class="btn btn-info" name="movie" value="Toy Story">
+        <input type="submit" class="btn btn-info" name="movie" value="Avatar">
+        <input type="submit" class="btn btn-info" name="movie" value="The Shawshank Redemption">
+        <input type="submit" class="btn btn-info" name="movie" value="Pulp Fiction">
+        <input type="submit" class="btn btn-info" name="movie" value="Forrest Gump">
+      <br>
 
-    <input type="text" name="movie" class="form-control" placeholder="Enter full movie name here">
-    <br>
-    <input type="submit" class="btn btn-info" value="Enter">
+      <p>or</p>
+    
+        <input type="text" name="movie" class="form-control" placeholder="Enter full movie name here">
+      <br>
+        <input type="submit" class="btn btn-info" value="Enter">
+      <br>
+      
+        <p>The model uses <b>Content Based Filter</b> to find similar movies. Intuitive idea behind is "If a person likes a particular item, he/she will also like an item that is similar to it."</p>
+        <p>Data source :<a href="https://www.kaggle.com/" target="_blank">Kaggle.com</a>.</p>
 
-<h4 style="color: #919191;">The model uses <b>Content Based Recommendations</b> to find similar movies. Intuitive idea behind is <i>"If a person likes a particular item, he/she will also like an item that is similar to it."</i> The dataset is taken from <a href="https://www.kaggle.com/" target="_blank">Kaggle.com</a>.</h4>
 
-  </form>
+
 {% endblock %}

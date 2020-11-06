@@ -22,14 +22,20 @@ def results(movie_name):
         sorted_similar_movies = sorted(similar_movies,key=lambda x:x[1],reverse=True)
 
         result=[]
+        score=[]
         i=0
         for element in sorted_similar_movies:
             if movie_data[movie_data.index == element[0]]["title"].values[0] == movie_name:
                 pass
             else:
                 result.append(movie_data[movie_data.index == element[0]]["title"].values[0])
+                score.append(round(element[1],2))
                 i=i+1
                 if i>9:
                     break
+        
+        zip_iterator = zip(result, score)
+        res_dct = dict(zip_iterator)
 
-        return result
+        return res_dct
+    

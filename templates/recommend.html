@@ -13,9 +13,18 @@
     <input type="submit" class="btn btn-info" value="Enter">
 
   <div class="shadow p-3 mb-5 bg-white rounded">
-    <h3 style="color:rgb(0, 102, 255)">Sorry! This movie is not in our database.</h3>
-    <h3 style="color:rgb(0, 102, 255)">Please check if you spelled it correctly.</h3>
-    <h3 style="color:rgb(0, 102, 255)">Or try with another movie.</h3>
+    <h4 style="color:rgb(0, 102, 255)">Sorry! This movie is not in our database.</h4>
+    <h4 style="color:rgb(0, 102, 255)">Please check if you spelled it correctly or try with another movie.</h4>
+    <hr>
+    <h4 style="color:rgb(0, 102, 255)">Limitations of this recommender</h4>
+    <ul>
+      <li style="color:rgb(0, 102, 255)">It will only list movies with IMDB rating more than 7 due to limitation of server</li>
+      <li style="color:rgb(0, 102, 255)">The datset was scraped in August 2020, so maynot include the latest movies</li>
+    </ul>
+  </form>
+
+  <br>
+  <hr>
   </div>
 
   {% else %}
@@ -34,11 +43,27 @@
     <h3 style="color:rgb(0, 102, 255)">Here are some more like this</h3>
   </div>
 
-    <ul class="list-group list-group-flush">
-      {% for m in r %}
-        <li class="list-group-item" style="color:rgb(0, 179, 0)"><strong>{{m|capitalize}}</strong></li>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+    </style>
+
+
+    <table>
+          <tr>
+            <th style="color:rgb(0, 179, 0)"> RECOMMENDED MOVIES </th>
+            <th style="color:rgb(0, 179, 0)"> SIMILARITY SCORE</th>
+        </tr>
+      {% for key, value in r.items() %}
+         <tr>
+              <td>{{key|capitalize}}</td>
+              <td>{{value|capitalize}} </td>
+         </tr>
       {% endfor %}
-    </ul>
+    </table>
+    <br>
+    <hr>
   {% endif %}
 
 {% endblock %}
