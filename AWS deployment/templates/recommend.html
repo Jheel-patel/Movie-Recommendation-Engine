@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  {% if t=='s' %}
+
+</div>
+
+
+  <form action="{{url_for('recommend')}}">
+
+    <input type="text" name="movie" class="form-control" placeholder="Enter full movie name here">
+    <br>
+    <input type="submit" class="btn btn-info" value="Enter">
+
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h4 style="color:rgb(0, 102, 255)">Sorry! This movie is not in our database.</h4>
+    <h4 style="color:rgb(0, 102, 255)">Please check if you spelled it correctly or try with another movie.</h4>
+    <hr>
+    <h4 style="color:rgb(0, 102, 255)">Due to hosting limitations, movies with the following characteristics shall only be searchable.</h4>
+    <ul>
+        <li>Rating>7</li>
+        <li>Votes>10,000</li>
+        <li>Release date between 2006 and 2016</li>
+        <li>Language: English</li>
+    </ul>
+  </form>
+
+  <br>
+  <hr>
+  </div>
+
+  {% else %}
+
+</div>
+
+
+  <form action="{{url_for('recommend')}}">
+
+    <input type="text" name="movie" class="form-control" placeholder="Enter full movie name here">
+    <br>
+    <input type="submit" class="btn btn-info" value="Enter">
+
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h1 style="color:rgb(0, 102, 255)">"{{movie}}" is a great choice.</h1>
+    <h3 style="color:rgb(0, 102, 255)">Here are some more like this</h3>
+  </div>
+
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+    </style>
+
+
+    <table>
+          <tr>
+            <th style="color:rgb(0, 179, 0)"> RECOMMENDED MOVIES </th>
+            <th style="color:rgb(0, 179, 0)"> SIMILARITY SCORE</th>
+        </tr>
+      {% for key, value in r.items() %}
+         <tr>
+              <td>{{key|capitalize}}</td>
+              <td>{{value|capitalize}} </td>
+         </tr>
+      {% endfor %}
+    </table>
+    <br>
+    <hr>
+  {% endif %}
+
+{% endblock %}

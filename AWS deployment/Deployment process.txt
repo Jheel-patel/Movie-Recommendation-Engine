@@ -1,0 +1,5 @@
+1. Flask code
+2. Run and check in Local
+3. Create EC2 instancte on AWS
+4. Generate private key using puttygen
+5. Enter hostname from SSH client(EC2 Instance->Action->Connect) to WinSCP ; Username:ubuntu ; Advanced authentication load the private key

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h1 text-align:center style="color:rgb(0, 102, 255)">Welcome to the AI based movie recommender</h1>
+    <h4 style="color:rgb(0, 0, 0)">Enter the movie you like to get recommendations.</h4>
+  </div>
+
+
+
+  </div>
+   
+    <form action="{{url_for('recommend')}}">
+      <input type="text" name="movie" class="form-control" placeholder="Enter full movie name here">
+      <br>
+      <input type="submit" class="btn btn-info" value="Enter">
+    </form>
+
+    <br>
+    <form action="{{url_for('recommend')}}">
+      <p>or try these
+
+      <input type="submit" class="btn btn-info" name="movie" value="Toy Story">
+      <input type="submit" class="btn btn-info" name="movie" value="Avatar">
+      <input type="submit" class="btn btn-info" name="movie" value="The Shawshank Redemption">
+      <input type="submit" class="btn btn-info" name="movie" value="Pulp Fiction">
+      <input type="submit" class="btn btn-info" name="movie" value="Forrest Gump">
+    </p>
+    </form>
+
+        <p>The model uses <b>Content Based Filter</b> to find similar movies. Intuitive idea behind is "If a person likes a particular item, he/she will also like an item that is similar to it."</p>
+        <p>Data source :<a href="https://www.kaggle.com/PromptCloudHQ/imdb-data" target="_blank">Kaggle-IMDB data from 2006 to 2016</a> merged with latest <a href="https://www.imdb.com/interfaces/" target="_blank">IMDB datasets</a></p>
+
+    
+
+{% endblock %}
